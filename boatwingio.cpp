@@ -5,6 +5,8 @@ void token::create( const name&   issuer,
 {
    require_auth( get_self() );
 
+   check( is_account( issuer ), "issuer account does not exist" );
+
    auto sym = maximum_supply.symbol;
 
    check( sym.is_valid(), "invalid symbol name" );
@@ -52,6 +54,8 @@ void token::setdelay(const symbol& symbol, uint64_t delaytime) {
 void token::settransfee(const symbol& symbol, uint64_t ratio, name receiver) {
    auto sym_code_raw = symbol.code().raw();
 
+   check( is_account( receiver ), "receiver account does not exist" );
+
    stats statstable( get_self(), sym_code_raw );
    auto& st = statstable.get( sym_code_raw, "symbol does not exist" );
 
@@ -67,6 +71,8 @@ void token::settransfee(const symbol& symbol, uint64_t ratio, name receiver) {
 
 void token::issue( const name& to, const asset& quantity, const string& memo )
 {
+   check( is_account( to ), "to account does not exist" );
+
    auto sym = quantity.symbol;
    check( sym.is_valid(), "invalid symbol name" );
    check( memo.size() <= 256, "memo has more than 256 bytes" );
@@ -268,7 +274,7 @@ void token::cancelrefund(name owner, symbol_code& symbol) {
    cancel_deferred( sender_id );
 
    auto sym_code_raw = symbol.raw();
-   unstakestats unstaketable( get_self(), get_first_receiver().value );
+   unstakestats unstaketable( get_self(), sym_code_raw );
    auto itr = unstaketable.find( owner.value );
    
    check( itr != unstaketable.end(), "refund request not found");
@@ -328,7 +334,7 @@ void token::open( const name& owner, const symbol& symbol, const name& ram_payer
    auto userstake = stakestable.find(owner.value);
 
    if(userstake == stakestable.end()) {
-      stakestable.emplace(owner, [&]( auto& r) {
+      stakestable.emplace( ram_payer, [&]( auto& r ) {
          r.owner = owner;
          r.staked_balance = asset{0, symbol};
       });
