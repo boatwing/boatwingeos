@@ -1,0 +1,405 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "account",
+            "base": "",
+            "fields": [
+                {
+                    "name": "balance",
+                    "type": "asset"
+                },
+                {
+                    "name": "staked_balance",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "autorefund",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "symbol",
+                    "type": "symbol_code"
+                }
+            ]
+        },
+        {
+            "name": "cancelrefund",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "symbol",
+                    "type": "symbol_code"
+                }
+            ]
+        },
+        {
+            "name": "close",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "symbol",
+                    "type": "symbol"
+                }
+            ]
+        },
+        {
+            "name": "create",
+            "base": "",
+            "fields": [
+                {
+                    "name": "issuer",
+                    "type": "name"
+                },
+                {
+                    "name": "maximum_supply",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "currency_stats",
+            "base": "",
+            "fields": [
+                {
+                    "name": "supply",
+                    "type": "asset"
+                },
+                {
+                    "name": "max_supply",
+                    "type": "asset"
+                },
+                {
+                    "name": "issuer",
+                    "type": "name"
+                },
+                {
+                    "name": "refund_delay",
+                    "type": "uint64"
+                },
+                {
+                    "name": "fee_ratio",
+                    "type": "uint64"
+                },
+                {
+                    "name": "fee_receiver",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "issue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "open",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "symbol",
+                    "type": "symbol"
+                },
+                {
+                    "name": "ram_payer",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "refund",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "symbol",
+                    "type": "symbol_code"
+                }
+            ]
+        },
+        {
+            "name": "retire",
+            "base": "",
+            "fields": [
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "setdelay",
+            "base": "",
+            "fields": [
+                {
+                    "name": "symbol",
+                    "type": "symbol"
+                },
+                {
+                    "name": "delaytime",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "settransfee",
+            "base": "",
+            "fields": [
+                {
+                    "name": "symbol",
+                    "type": "symbol"
+                },
+                {
+                    "name": "ratio",
+                    "type": "uint64"
+                },
+                {
+                    "name": "receiver",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "stake",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "stake_stats",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "staked_balance",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "stake_total",
+            "base": "",
+            "fields": [
+                {
+                    "name": "staked_balance_total",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "transfer",
+            "base": "",
+            "fields": [
+                {
+                    "name": "from",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "unstake",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "unstake_stats",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "request_time",
+                    "type": "uint64"
+                },
+                {
+                    "name": "refund_time",
+                    "type": "uint64"
+                },
+                {
+                    "name": "amount",
+                    "type": "asset"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "autorefund",
+            "type": "autorefund",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "cancelrefund",
+            "type": "cancelrefund",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "close",
+            "type": "close",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "create",
+            "type": "create",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "issue",
+            "type": "issue",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "open",
+            "type": "open",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "refund",
+            "type": "refund",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "retire",
+            "type": "retire",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "setdelay",
+            "type": "setdelay",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "settransfee",
+            "type": "settransfee",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "stake",
+            "type": "stake",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "transfer",
+            "type": "transfer",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "unstake",
+            "type": "unstake",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "accounts",
+            "type": "account",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "stakestats",
+            "type": "stake_stats",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "stat",
+            "type": "currency_stats",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "totalstake",
+            "type": "stake_total",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "unstakestats",
+            "type": "unstake_stats",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": []
+}
